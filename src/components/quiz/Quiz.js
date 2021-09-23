@@ -10,12 +10,15 @@ import { QuizzesContext } from "../../App";
 const Quiz = () => {
 	const { id } = useParams();
 	const [quiz, setQuiz] = useState(null);
+	const [answers, setAnswers] = useState([]);
 
 	const { quizzes } = useContext(QuizzesContext);
 
 	useEffect(() => {
 		setQuiz(quizzes.find((quiz) => quiz.id === +id));
-	}, [id]);
+	}, [quizzes, id]);
+
+	const handleAnswersSubmit = () => {};
 
 	return (
 		<>
@@ -44,9 +47,14 @@ const Quiz = () => {
 								></iframe>
 							</div>
 							{quiz.questions_answers.map((qa) => (
-								<Question qa={qa} key={qa.id} />
+								<Question qa={qa} answers={answers} setAnswers={setAnswers} key={qa.id} />
 							))}
-							<button className="btn btn-primary d-block mx-auto mt-5">Submit Answers</button>
+							<button
+								className="btn btn-primary d-block mx-auto mt-5"
+								onClick={() => console.log(answers)}
+							>
+								Submit Answers
+							</button>
 						</div>
 					</div>
 				</>
