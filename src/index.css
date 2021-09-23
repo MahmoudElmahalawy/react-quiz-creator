@@ -10,6 +10,7 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+/* Change mouse cursor to pointer */
 .cursor-pointer {
 	cursor: pointer;
 }
