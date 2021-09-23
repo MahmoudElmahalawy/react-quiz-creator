@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
-import Question from "./Question";
 import { Link } from "react-router-dom";
+
+import Question from "./Question";
 
 // import { quizzes } from "../../data";
 import { QuizzesContext } from "../../App";
