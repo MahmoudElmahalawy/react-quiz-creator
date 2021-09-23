@@ -10,7 +10,7 @@ const Navbar = () => {
 				</Link>
 				<div className="d-flex">
 					<button className="btn btn-primary me-2">Add New Quiz</button>
-					<button className="btn btn-outline-primary">Edit a Quiz</button>
+					<button className="btn btn-outline-primary">Edit Quiz</button>
 				</div>
 			</div>
 		</nav>

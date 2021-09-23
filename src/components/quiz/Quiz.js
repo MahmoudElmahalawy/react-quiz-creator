@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import Question from "./Question";
+import { Link } from "react-router-dom";
 
-import { quizzes } from "../../data";
+// import { quizzes } from "../../data";
+import { QuizzesContext } from "../../App";
 
 const Quiz = () => {
 	const { id } = useParams();
 	const [quiz, setQuiz] = useState(null);
+
+	const { quizzes } = useContext(QuizzesContext);
 
 	useEffect(() => {
 		setQuiz(quizzes.find((quiz) => quiz.id === +id));
@@ -14,7 +18,7 @@ const Quiz = () => {
 
 	return (
 		<>
-			{quiz && (
+			{quiz ? (
 				<>
 					<h2 className="display-4 my-5">Quiz No. {quiz.id}</h2>
 					<div className="card my-3">
@@ -45,6 +49,13 @@ const Quiz = () => {
 						</div>
 					</div>
 				</>
+			) : (
+				<div className="my-5 text-center">
+					<p className="h5">No quiz with this id was found</p>
+					<Link className="btn btn-outline-secondary my-3" to="/">
+						Go Back
+					</Link>
+				</div>
 			)}
 		</>
 	);
