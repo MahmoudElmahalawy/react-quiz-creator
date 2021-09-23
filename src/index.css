@@ -15,6 +15,14 @@ code {
 	cursor: pointer;
 }
 
+/* Custom class to change width to fit contents */
 .w-fit {
 	width: fit-content;
+}
+
+/* Smaller horizontal line divider */
+.hr-sm {
+	display: block;
+	width: 35%;
+	margin: 2rem auto;
 }
