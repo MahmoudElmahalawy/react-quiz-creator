@@ -11,6 +11,8 @@ const Quiz = () => {
 	const { id } = useParams();
 	const [quiz, setQuiz] = useState(null);
 	const [answers, setAnswers] = useState([]);
+	const [quizNotFinished, setQuizNotFinished] = useState(null);
+	const [showFeedback, setShowFeedback] = useState(false);
 
 	const { quizzes } = useContext(QuizzesContext);
 
@@ -18,7 +20,12 @@ const Quiz = () => {
 		setQuiz(quizzes.find((quiz) => quiz.id === +id));
 	}, [quizzes, id]);
 
-	const handleAnswersSubmit = () => {};
+	const checkAnswers = (quiz, answers) => {
+		if (answers.length !== quiz.questions_answers.length) {
+			return setQuizNotFinished(true);
+		}
+		setQuizNotFinished(false);
+	};
 
 	return (
 		<>
@@ -46,12 +53,18 @@ const Quiz = () => {
 									allowFullScreen
 								></iframe>
 							</div>
+							<hr className="hr-sm" />
 							{quiz.questions_answers.map((qa) => (
 								<Question qa={qa} answers={answers} setAnswers={setAnswers} key={qa.id} />
 							))}
+							{quizNotFinished && (
+								<div className="alert-danger w-fit rounded-3 py-2 px-3 mx-auto mt-3">
+									Please finish answering
+								</div>
+							)}
 							<button
 								className="btn btn-primary d-block mx-auto mt-5"
-								onClick={() => console.log(answers)}
+								onClick={() => checkAnswers(quiz, answers)}
 							>
 								Submit Answers
 							</button>
