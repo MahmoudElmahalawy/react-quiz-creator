@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Quiz from "./components/quiz/Quiz";
+import AddQuiz from "./components/quiz/AddQuiz";
 
 import { quizzes as data } from "./data";
 import { getQuizzesFromLS, setQuizzesToLS } from "./utilities";
@@ -32,6 +33,9 @@ function App() {
 								</Route>
 								<Route exact path="/quiz/:id">
 									<Quiz />
+								</Route>
+								<Route exact path="/quiz/add">
+									<AddQuiz />
 								</Route>
 							</Switch>
 						</div>
