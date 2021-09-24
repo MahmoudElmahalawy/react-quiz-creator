@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Quiz from "./components/quiz/Quiz";
 import AddQuiz from "./components/quiz/AddQuiz";
+import EditQuiz from "./components/quiz/EditQuiz";
+import NotFound from "./components/NotFound";
 
 import { quizzes as data } from "./data";
 import { getQuizzesFromLS, setQuizzesToLS } from "./utilities";
@@ -39,6 +41,9 @@ function App() {
 								</Route>
 								<Route exact path="/quiz/:id/edit">
 									<EditQuiz />
+								</Route>
+								<Route path="*">
+									<NotFound />
 								</Route>
 							</Switch>
 						</div>
