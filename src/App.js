@@ -14,6 +14,7 @@ export const QuizzesContext = createContext();
 
 function App() {
 	const [quizzes, setQuizzes] = useState(null);
+	const [editEnabled, setEditEnabled] = useState(false);
 
 	useEffect(() => {
 		if (getQuizzesFromLS().length === 0) {
@@ -25,7 +26,9 @@ function App() {
 	return (
 		<>
 			{quizzes && (
-				<QuizzesContext.Provider value={{ quizzes, setQuizzes, getQuizzesFromLS, setQuizzesToLS }}>
+				<QuizzesContext.Provider
+					value={{ quizzes, setQuizzes, getQuizzesFromLS, setQuizzesToLS, editEnabled, setEditEnabled }}
+				>
 					<Router>
 						<Navbar />
 						<div className="container">

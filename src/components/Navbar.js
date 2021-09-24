@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { QuizzesContext } from "../App";
+
 const Navbar = () => {
+	const { editEnabled, setEditEnabled } = useContext(QuizzesContext);
+	const toggleEdit = () => {
+		// console.log("editEnabled", editEnabled);
+		setEditEnabled((prevState) => !prevState);
+	};
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
@@ -9,8 +16,12 @@ const Navbar = () => {
 					Quiz Creator
 				</Link>
 				<div className="d-flex">
-					<button className="btn btn-primary me-2">Add New Quiz</button>
-					<button className="btn btn-outline-primary">Edit Quiz</button>
+					<Link className="btn btn-primary me-2" to="/quiz/add">
+						Add New Quiz
+					</Link>
+					<button className="btn btn-outline-primary" onClick={toggleEdit}>
+						{editEnabled ? "Cancel" : "Edit Quiz"}
+					</button>
 				</div>
 			</div>
 		</nav>
