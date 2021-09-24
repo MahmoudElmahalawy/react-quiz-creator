@@ -36,11 +36,11 @@ function App() {
 								<Route exact path="/">
 									<Home />
 								</Route>
-								<Route exact path="/quiz/:id">
-									<Quiz />
-								</Route>
 								<Route exact path="/quiz/add">
 									<AddQuiz />
+								</Route>
+								<Route exact path="/quiz/:id">
+									<Quiz />
 								</Route>
 								<Route exact path="/quiz/:id/edit">
 									<EditQuiz />
