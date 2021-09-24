@@ -37,6 +37,9 @@ function App() {
 								<Route exact path="/quiz/add">
 									<AddQuiz />
 								</Route>
+								<Route exact path="/quiz/:id/edit">
+									<EditQuiz />
+								</Route>
 							</Switch>
 						</div>
 					</Router>
