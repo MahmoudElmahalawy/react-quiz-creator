@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const AddQuiz = () => {
 	const [qaArr, setQandAArr] = useState([{ questionNo: 1, answers: [1, 2] }]);
+	const [quizMetadata, setQuizMetadata] = useState({});
 
 	const QuestionInput = ({ questionIndex }) => (
 		<div>
@@ -84,6 +85,8 @@ const AddQuiz = () => {
 		setQandAArr([...qaCopy]);
 	};
 
+	const createQuiz = () => {};
+
 	return (
 		<>
 			<h2 className="display-4 my-5">Create Quiz</h2>
@@ -118,8 +121,11 @@ const AddQuiz = () => {
 			<h2 className="display-6 mt-2 mb-3 text-muted">Questions and Answers</h2>
 
 			<QuestionsAndAnswers />
-			<button className="btn btn-primary d-block mx-auto my-3" onClick={addQuestion}>
+			<button className="btn btn-outline-primary d-block my-3 ms-auto" onClick={addQuestion}>
 				Add Question
+			</button>
+			<button className="btn btn-lg btn-primary d-block mx-auto my-3" onClick={createQuiz}>
+				Create Quiz
 			</button>
 		</>
 	);
