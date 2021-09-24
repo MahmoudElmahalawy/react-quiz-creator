@@ -21,7 +21,6 @@ const Quiz = () => {
 	}, [quizzes, id]);
 
 	const checkQuizFinished = () => {
-		console.log(answers);
 		if (answers.length !== quiz.questions_answers.length) {
 			return setQuizNotFinished(true);
 		}
