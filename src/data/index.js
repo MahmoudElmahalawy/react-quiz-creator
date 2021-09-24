@@ -1,5 +1,64 @@
 export const quizzes = [
 	{
+		created: "2020-09-01 09:26:39",
+		description: "This is first quiz description",
+		id: 111,
+		modified: "2020-09-01 09:26:39",
+		questions_answers: [
+			{
+				answer_id: null,
+				answers: [
+					{
+						id: 1231,
+						is_true: false,
+						text: "question 1 answer 2 false",
+					},
+					{
+						id: 1241,
+						is_true: true,
+						text: "question 1 answer 3 true",
+					},
+					{
+						id: 1251,
+						is_true: false,
+						text: "question 1 answer 4 false",
+					},
+				],
+				feedback_false: "question 1 false feedback",
+				feedback_true: "question 1 true feedback",
+				id: 531,
+				text: "question 1 text",
+			},
+			{
+				answer_id: null,
+				answers: [
+					{
+						id: 1261,
+						is_true: true,
+						text: "question 2 answer 1 true",
+					},
+					{
+						id: 1271,
+						is_true: false,
+						text: "question 2 answer 2 false",
+					},
+					{
+						id: 1281,
+						is_true: false,
+						text: "question 2 answer 2 false",
+					},
+				],
+				feedback_false: "question 2 false feedback",
+				feedback_true: "question 2 true feedback",
+				id: 541,
+				text: "question 2 text",
+			},
+		],
+		score: 3,
+		title: "Test Quiz",
+		url: "https://www.youtube.com/watch?v=t9mxon4txFQ",
+	},
+	{
 		created: "2020-09-09 09:26:39",
 		description: "This is first quiz description",
 		id: 29,
