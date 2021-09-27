@@ -7,8 +7,10 @@ import AddQuiz from "./components/quiz/AddQuiz";
 import EditQuiz from "./components/quiz/EditQuiz";
 import NotFound from "./components/NotFound";
 
-import { quizzes as data } from "./data";
-import { getQuizzesFromLS, setQuizzesToLS } from "./utilities";
+// import { quizzes as data } from "./data";
+// import { getQuizzesFromLS, setQuizzesToLS } from "./utilities";
+
+import { getQuizzesFromAPI } from "./utilities";
 
 export const QuizzesContext = createContext();
 
@@ -16,18 +18,24 @@ function App() {
 	const [quizzes, setQuizzes] = useState(null);
 	const [editEnabled, setEditEnabled] = useState(false);
 
+	// useEffect(() => {
+	// 	if (getQuizzesFromLS().length === 0) {
+	// 		setQuizzesToLS(data);
+	// 	}
+	// 	setQuizzes(getQuizzesFromLS());
+
 	useEffect(() => {
-		if (getQuizzesFromLS().length === 0) {
-			setQuizzesToLS(data);
-		}
-		setQuizzes(getQuizzesFromLS());
-	}, []);
+		getQuizzesFromAPI()
+			.then((data) => data.json())
+			.then((fetchedQuizzes) => setQuizzes(fetchedQuizzes));
+	});
 
 	return (
 		<>
 			{quizzes && (
+				// value={{ quizzes, setQuizzes, getQuizzesFromLS, setQuizzesToLS, editEnabled, setEditEnabled }}
 				<QuizzesContext.Provider
-					value={{ quizzes, setQuizzes, getQuizzesFromLS, setQuizzesToLS, editEnabled, setEditEnabled }}
+					value={{ quizzes, setQuizzes, getQuizzesFromAPI, editEnabled, setEditEnabled }}
 				>
 					<Router>
 						<Navbar />
