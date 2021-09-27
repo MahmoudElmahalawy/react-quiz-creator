@@ -19,8 +19,8 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"windows-dev": "start npm start && start npm run json-server --watch src/data/db.json --port 3005",
-		"unix-dev": "npm start & npm run json-server --watch src/data/db.json --port 3005"
+		"windows-dev": "start npm start && start json-server --watch src/data/db.json --port 3005",
+		"unix-dev": "npm start & json-server --watch src/data/db.json --port 3005"
 	},
 	"eslintConfig": {
 		"extends": [
