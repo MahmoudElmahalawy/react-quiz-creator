@@ -28,7 +28,7 @@ function App() {
 		getQuizzesFromAPI()
 			.then((data) => data.json())
 			.then((fetchedQuizzes) => setQuizzes(fetchedQuizzes));
-	});
+	}, []);
 
 	return (
 		<>
